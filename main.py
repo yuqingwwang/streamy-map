@@ -25,8 +25,8 @@ def create_map(center):
             "circlemarker": False,
             "rectangle": True,
         }).add_to(m)
-    MousePosition().add_to(m)
-    ClickForLatLng().add_to(m)
+    #MousePosition()
+    ClickForLatLng()
     return m
 
 # Streamlit app
@@ -38,7 +38,7 @@ m = create_map(initial_center)
 
 # Add a button to capture the rectangle coordinates
 if st.button("Get Rectangle Coordinates"):
-    drawn_features = m
+    drawn_features = m.to_dict()
     st.write(drawn_features)
 
 # Display the Folium map using st_folium
