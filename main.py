@@ -26,7 +26,7 @@ def create_map(center):
             "rectangle": True,
         }).add_to(m)
     #MousePosition()
-    ClickForLatLng()
+    #ClickForLatLng()
     return m
 
 # Streamlit app
