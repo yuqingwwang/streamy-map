@@ -38,16 +38,8 @@ m = create_map(initial_center)
 
 # Add a button to capture the rectangle coordinates
 if st.button("Get Rectangle Coordinates"):
-    drawn_features = m.get_root().get_instantiate_feature_group("feature_group")
-    rectangles = drawn_features.get_by_type(folium.Rectangle)
-    
-    if rectangles:
-        # Assuming there's only one rectangle drawn
-        rectangle = rectangles[0]
-        bounds = rectangle.get_bounds()
-        st.text(f"Rectangle Coordinates: {bounds}")
-    else:
-        st.text("No rectangle drawn yet.")
+    drawn_features = m.get_root().render()
+    st.write(drawn_features)
 
 # Display the Folium map using st_folium
 st_folium(m)
