@@ -32,14 +32,16 @@ def create_map(center):
 # Streamlit app
 st.title("Folium Map with Rectangle")
 
-# Create the Folium map
+c1, c2 = st.columns(2)
+
 initial_center = [51.5328, -0.0769]
-m = create_map(initial_center)
+with c1:
+    # m = create_map(initial_center)
+    output = st_folium(create_map(initial_center))
 
 # Add a button to capture the rectangle coordinates
-if st.button("Get Rectangle Coordinates"):
-    drawn_features = m.to_dict()
-    st.write(drawn_features)
+with c2:
+    st.write(output["all_drawings"][0]["geometry"]["coordinates"])
 
 # Display the Folium map using st_folium
 st_folium(m)
