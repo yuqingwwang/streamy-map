@@ -1,10 +1,8 @@
 import streamlit as st
 import folium
-from folium.plugins import Draw, MousePosition
+from folium.plugins import Draw
 from streamlit_folium import st_folium
-from folium.features import ClickForLatLng, ClickForMarker
 
-# Create the Folium map using your create_map function
 def create_map(center):
     m = folium.Map(
         location=center,
@@ -25,21 +23,16 @@ def create_map(center):
             "circlemarker": False,
             "rectangle": True,
         }).add_to(m)
-    #MousePosition()
-    #ClickForLatLng()
     return m
 
-# Streamlit app
 st.title("Folium Map with Rectangle")
 
 c1, c2 = st.columns(2)
 
 initial_center = [51.5328, -0.0769]
 with c1:
-    # m = create_map(initial_center)
     output = st_folium(create_map(initial_center))
 
-# Add a button to capture the rectangle coordinates
 with c2:
     info = output.get("all_drawings")
     if info:
