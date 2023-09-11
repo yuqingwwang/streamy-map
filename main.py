@@ -41,7 +41,6 @@ with c1:
 
 # Add a button to capture the rectangle coordinates
 with c2:
-    st.write(output["all_drawings"][0]["geometry"]["coordinates"])
-
-# Display the Folium map using st_folium
-st_folium(m)
+    info = output.get("all_drawings")
+    if info:
+        st.write(info[0]["geometry"]["coordinates"])
