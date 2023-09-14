@@ -36,4 +36,16 @@ with c1:
 with c2:
     info = output.get("all_drawings")
     if info:
-        st.write(info[0]["geometry"]["coordinates"])
+        coordinates = info[0]["geometry"]["coordinates"][0]
+
+        A1 = coordinates[0]
+        A2 = coordinates[1]
+        B1 = coordinates[2]
+        B2 = coordinates[3]
+
+        st.write("Coordinates of the rectangle")
+
+        st.write(f"Top Left: {A1}")
+        st.write(f"Top Right: {A2}")
+        st.write(f"Bottom Left: {B1}")
+        st.write(f"Bottom Right: {B2}")
