@@ -42,6 +42,7 @@ with c2:
         A2 = coordinates[1]
         B1 = coordinates[2]
         B2 = coordinates[3]
+        center = [(A1[0] + B2[0]) / 2, (A1[1] + B2[1]) / 2]
 
         st.write("Coordinates of the rectangle")
 
@@ -49,3 +50,4 @@ with c2:
         st.write(f"Top Right: {A2}")
         st.write(f"Bottom Left: {B1}")
         st.write(f"Bottom Right: {B2}")
+        st.write(f"Center: {center}")
